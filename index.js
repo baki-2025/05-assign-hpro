@@ -50,7 +50,7 @@ document.querySelectorAll(".call-btn").forEach(btn => {
     const time = new Date().toLocaleTimeString();
     const entry = document.createElement("li");
     entry.textContent = `${serviceName} (${number}) - ${time}`;
-    if (historyList.textContent.includes(" ")) {
+    if (historyList.textContent.includes("No Calls Yet")) {
       historyList.textContent = "";
     }
     historyList.appendChild(entry);
@@ -59,5 +59,5 @@ document.querySelectorAll(".call-btn").forEach(btn => {
 
 
 function clearHistory() {
-  historyList.innerHTML = " ";
+  historyList.innerHTML = "No Calls Yet";
 }
