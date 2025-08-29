@@ -28,10 +28,10 @@
     <h1 class="text-2xl font-bold">Emergency Service Directory</h1>
     <p class="text-sm mt-2">Government Emergency Services at Your Fingertip – A Project by  Government of the People’s Republic of Bangladesh</p>
   </section>
-   <main class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+   <main class="p-6 grid grid-cols-1 md:grid-cols-3 gap-50">
 
     <!-- Left Section: Cards -->
-    <section class=" md:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section class="w-[1200px] h-[1140px] md:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
       <!-- Service Card Example -->
       <div class=" card bg-white shadow-lg rounded-lg p-4 ">
@@ -170,6 +170,18 @@
           </div>
       </div>
 </section>
+<!-- Right Section: Call History -->
+ 
+    <div class=" bg-white shadow-lg rounded-lg p-4 w-[400px] h-[1140px]">
+      <div class="flex justify-between items-center mb-2">
+        <h2 class="font-bold text-lg"><i class="fa-solid fa-clock"></i>Call History</h2>
+        <br>
+        <button onclick="clearHistory()" class="bg-green-500 text-white px-3 py-1 rounded">Clear</button>
+      </div>
+      <ul id="historyList" class="text-sm text-gray-700 space-y-2">
+        <li>No calls yet.</li>
+      </ul>
+    </div>
+</main>
    </body>
 </html>
-  
