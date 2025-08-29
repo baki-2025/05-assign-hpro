@@ -16,9 +16,9 @@
     </div>
     
     <div class="flex items-center gap-6">
-      <span class="w-[30px] h-[30px]" id="heartCount"><img src="./assets/heart.png" alt=""></span>
+      <span class="w-[20.23px] h-[22.7px]" id="heartCount"><img src="./assets/heart.png" alt=""></span>
       <span id="coinCount"><img class="w-[23.25px] h-[23.22px]" src="./assets/coin.png" alt=""></span>
-      <button id="copyCount" class="bg-green-500 text-white px-3 py-1 rounded-lg">Copy</button>
+      <button id="copyCount" class="w-[90px] h-[45px] bg-green-500 text-white px-3 py-1 rounded-lg">Copy</button>
     </div>
   </header>
   <!-- Title -->
@@ -27,6 +27,28 @@
     <h1 class="text-2xl font-bold">Emergency Service Directory</h1>
     <p class="text-sm mt-2">Government Emergency Services at Your Fingertip – A Project by  Government of the People’s Republic of Bangladesh</p>
   </section>
+   <main class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- Left Section: Cards -->
+    <section class=" md:col-span-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Service Card Example -->
+      <div class=" card bg-white shadow-lg rounded-lg p-4 ">
+       <div class="flex justify-between">
+        <h3 class="font-bold">Police Helpline</h3>
+         <span class="heart cursor-pointer"><i class="fa-regular fa-heart"></i></span>
+        </div>
+         <p class="text-gray-600 text-sm">National Emergency</p>
+        <p class="number text-2xl font-bold mt-2">999</p>
+        <span class="text-gray-600 text-sm">Police</span>
+        <br>
+        <br>
+         <div class="mt-3 flex  gap-2">
+          <button class="copy-btn bg-gray-200 px-3 py-1 rounded w-[170.33px] h-[40px]"><i class="fa-regular fa-copy"></i>Copy</button>
+          <button class="call-btn bg-green-600 text-white px-3 py-1 rounded w-[170.33px] h-[40px]"><i class="fa-solid fa-phone"></i>Call</button>
+          </div>
+      </div>
+</section>
    </body>
 </html>
   
