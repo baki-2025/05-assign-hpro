@@ -111,11 +111,145 @@ You have to create a `Readme.md` file. and write down following questions. Dont 
 ### 6. Answer the following questions clearly:
 
 1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
-2. How do you **create and insert a new element into the DOM**?
-3. What is **Event Bubbling** and how does it work?
-4. What is **Event Delegation** in JavaScript? Why is it useful?
-5. What is the difference between **preventDefault() and stopPropagation()** methods?
+Answer:-
+document.getElementById("id")
 
+Selects one element by its ID.
+
+Returns a single element (or null if not found).
+
+Fastest because IDs are unique.
+
+const title = document.getElementById("main-title");
+console.log(title.textContent);
+
+🔹 document.getElementsByClassName("class")
+
+Selects all elements with the given class name.
+
+Returns an HTMLCollection (not an array, but array-like).
+
+Updates automatically if the DOM changes.
+
+const items = document.getElementsByClassName("list-item");
+console.log(items[0].textContent); // access first item
+
+🔹 document.querySelector("selector")
+
+Selects the first element that matches a CSS selector.
+
+More flexible: can select by ID, class, tag, attribute, etc.
+
+const firstButton = document.querySelector(".btn.primary");
+
+🔹 document.querySelectorAll("selector")
+
+Selects all elements that match a CSS selector.
+
+Returns a NodeList (can use forEach).
+
+Static (doesn’t auto-update when DOM changes).
+
+const allButtons = document.querySelectorAll(".btn");
+allButtons.forEach(btn => console.log(btn.textContent));
+
+
+✅ Summary
+
+ID → getElementById (one element)
+
+Class → getElementsByClassName (live collection)
+
+CSS selectors → querySelector (first match) / querySelectorAll (all matches, static list)
+2. How do you **create and insert a new element into the DOM**?
+Answer:-
+Use document.createElement() + append() / prepend() / before() / after() / appendChild().
+
+const newDiv = document.createElement("div");
+newDiv.textContent = "Hello, I am new!";
+newDiv.classList.add("highlight");
+
+// Insert into body
+document.body.appendChild(newDiv);
+
+// Insert before another element
+const header = document.querySelector("h1");
+header.before(newDiv);
+
+3. What is **Event Bubbling** and how does it work?
+Answer:-
+Event Bubbling = When an event (like click) happens on an element, it bubbles up (propagates) through its ancestors.
+
+Example:
+
+<div id="parent">
+  <button id="child">Click Me</button>
+</div>
+
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("Parent clicked");
+});
+
+document.getElementById("child").addEventListener("click", () => {
+  console.log("Child clicked");
+});
+
+
+👉 If you click the button:
+
+child handler runs first
+
+Then event bubbles to parent handler
+4. What is **Event Delegation** in JavaScript? Why is it useful?
+Answer:-
+Event Delegation = Instead of adding event listeners to many child elements, you attach one listener to a parent and let event bubbling handle it.
+
+✅ Useful when:
+
+You have many dynamic elements (e.g., list items created later).
+
+Performance: fewer event listeners.
+
+Example:
+
+<ul id="menu">
+  <li>Home</li>
+  <li>About</li>
+  <li>Contact</li>
+</ul>
+
+document.getElementById("menu").addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") {
+    console.log("Clicked:", e.target.textContent);
+  }
+});
+
+
+👉 Works for all <li>, even new ones added later.
+5. What is the difference between **preventDefault() and stopPropagation()** methods?
+Answer:-
+preventDefault() → Stops the default action of an event.
+Example: Stop a link from navigating.
+
+document.querySelector("a").addEventListener("click", (e) => {
+  e.preventDefault(); // stop navigation
+  console.log("Link click prevented!");
+});
+
+
+stopPropagation() → Stops the event bubbling (so parent listeners don’t fire).
+
+document.getElementById("child").addEventListener("click", (e) => {
+  e.stopPropagation(); // parent won’t trigger
+  console.log("Child clicked only!");
+});
+
+
+🔥 In short:
+
+preventDefault() → Stops default browser behavior.
+
+stopPropagation() → Stops event bubbling to parents.
 ---
 
 ## 🧪 Challenges Part (10 Marks)
